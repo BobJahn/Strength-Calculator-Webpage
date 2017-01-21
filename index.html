@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Strength Calculator</title>
+
+
+<style>
+	body {
+		background-color: lightblue;
+		background-image:url('arnold.PNG');
+		-webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+		color: pink;
+	}
+	
+	label {
+		padding-right: 65px;
+	}
+	
+	.styleform input {
+		width: 10%;
+        clear: both;
+		float: center;
+	}
+	.styleform label {
+		float:left;
+		width:100px;
+	}
+	
+	div.ex1 {
+		padding-left: 460px;
+	}
+	
+	div.ex2 {
+		padding-left: 505px;
+		width: 100%;
+        clear: both;
+		float: center;
+	}
+	
+
+	
+</style>
+</head>
+
+<body>
+<div class="styleform">
+
+<Label>Weight:</Label>
+<input type="number" name="weight" value="200" min="80" max="550">
+<br>
+
+<Label>Age:</Label>
+<input type="number" name="age" value="30" min="16" max="110">
+<br>
+<div class=ex2>
+<Label>One Rep Max:</Label>
+<Label>Two Rep Max:</Label>
+</div>
+<br>
+
+<Label>Bench:</Label>
+<input type="number" id="bench" name="bench" value="305" min="1" max="800">
+<input type="number" id="benchReps" name="benchReps" value="1" min="1" max="20">
+<input type="text" id="benchResults" name="benchResults" readonly>
+<input type="text" id="benchResults2" name="benchResults2" readonly>
+<br>
+
+<Label>Squat:</Label>
+<input type="number" id="squat" name="squat" value="370" min="1" max="800">
+<input type="number" id="squatReps" name="squatReps" value="1" min="1" max="20">
+<input type="text" id="squatResults" name="squatResults" readonly>
+<input type="text" id="squatResults2" name="squatResults2" readonly>
+<br>
+
+<Label>Deadlift:</Label>
+<input type="number" id="deadlift" name="deadlift" value="370" min="1" max="800">
+<input type="number" id="deadReps" name="deadReps" value="1" min="1" max="20">
+<input type="text" id="deadResults" name="deadResults" readonly>
+<input type="text" id="deadResults2" name="deadResults2" readonly>
+<br>
+<br>
+
+<div class=ex2>
+<Label>Totals:</Label>
+</div>
+
+<div class=ex2>
+<input type="text" id="results" name="results" readonly>
+</div>
+<br>
+</div>
+
+
+<button onclick="oneRep()">Calculate</button>
+
+
+
+<script>
+function oneRep() {
+	var totals = 0;
+	var weight = document.getElementById("bench").value;
+	var reps = document.getElementById("benchReps").value;
+	if (reps > 1) {
+		var total = weight * (1 + (reps/30));
+		total = Math.round(total);
+	}
+	else {
+		var total = weight
+	}
+	totals += parseInt(total);
+	document.getElementById("benchResults").value = total;
+	document.getElementById("benchResults2").value = total*.95;
+	
+	weight = document.getElementById("squat").value;
+	reps = document.getElementById("squatReps").value;
+	if (reps > 1) {
+		var total = weight * (1 + (reps/30));
+		total = Math.round(total);
+	}
+	else {
+		var total = weight
+	}
+	totals += parseInt(total);
+	document.getElementById("squatResults").value = total;
+	document.getElementById("squatResults2").value = total*.95;
+	
+	weight = document.getElementById("deadlift").value;
+	reps = document.getElementById("deadReps").value;
+	if (reps > 1) {
+		var total = weight * (1 + (reps/30));
+		total = Math.round(total);
+	}
+	else {
+		var total = weight
+	}
+	totals += parseInt(total);
+	document.getElementById("deadResults").value = total;
+	document.getElementById("deadResults2").value = total*.95;
+	
+	document.getElementById("results").value = totals;
+}
+</script>
+
+
+</body>
+
+
+
+</html>
